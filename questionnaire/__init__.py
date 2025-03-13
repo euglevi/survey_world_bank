@@ -386,6 +386,10 @@ class InformedConsent(Page):
         player.id_cint = player.participant.label
 
 
+class InformedConsent2(Page):
+    pass
+
+
 class BlockA1(Page):
     form_model = "player"
     form_fields = ["gender", "age", "marital_status"]
@@ -501,6 +505,7 @@ class Completion(Page):
 
 page_sequence = [
     InformedConsent,
+    InformedConsent2,
     BlockA1,
     Screening,
     BlockA2,
