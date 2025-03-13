@@ -1,0 +1,51 @@
+{{ block title }}
+{{ endblock }}
+{{ block content }}
+
+<style>
+    
+    table {
+      table-layout:fixed;
+}
+
+    th {
+	width: 25%
+    }
+
+    table tr th:nth-child(1){
+       width: 70%;
+     }
+
+    td {
+	width: 10,7%
+    }
+</style>
+
+	
+Considera los cuatro factores siguientes; ¿podrías decirnos si, para ti, son:
+
+<p><small>Nota: si estás en un teléfono móvil, es posible que desees girar la pantalla para ver mejor las etiquetas.</small>
+
+<div class="table-responsive">
+    <table class="table">
+	    <tr>
+		<th></th>
+		    <th>Nada importantes</th>
+		    <th>Algo importantes</th>
+		    <th>Importantes</th>
+		    <th>Extremadamente importantes</th>
+	    </tr>
+	{{ for field in form }}
+	    <tr>
+		<th>{{ field.label }}</th>
+		{{ for choice in field }}
+		    <td>{{ choice }}</td>
+		{{ endfor }}
+	    </tr>
+	{{ endfor }}
+    </table>
+</div>
+
+    {{ next_button }}
+
+{{ endblock }}
