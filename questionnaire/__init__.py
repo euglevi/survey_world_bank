@@ -20,10 +20,9 @@ class Subsession(BaseSubsession):
 
 def creating_session(subsession):
     order_blocks = itertools.cycle(subsession.session.config["blocks"])
-    orderB = random.choice(subsession.session.config["orderB"])
     for p in subsession.get_players():
         p.order_blocks = next(order_blocks)
-        p.orderB = orderB
+        p.orderB = random.choice(subsession.session.config["orderB"])
 
 
 class Group(BaseGroup):
