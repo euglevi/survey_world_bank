@@ -297,7 +297,7 @@ class Player(BasePlayer):
     )
 
     visualize_spouse_scenario = models.IntegerField(
-        label="Considera ahora los dos escenarios (México y Estados Unidos); Trata de visualizar las características de tu futuro cónyuge/pareja en cada escenario. En caso de emigrar a Estados Unidos, ¿eres",
+        label="Considera ahora los dos escenarios (México y Estados Unidos); trata de visualizar las características de tu futuro cónyuge/pareja en cada escenario. En caso de emigrar a Estados Unidos, ¿eres",
         choices=[
             [
                 1,
@@ -430,21 +430,63 @@ class BlockA2(Page):
     ]
 
 
-class BlockB1(Page):
+class BlockB1A(Page):
     form_model = "player"
-    form_fields = [
-        "probability_marriage_mex",
-        "spouse_age_mex",
-        "spouse_birthplace_mex",
-        "spouse_education_mex",
-        "spouse_characteristics_mex",
-        "probability_marriage_us",
-        "spouse_age_us",
-        "spouse_birthplace_us",
-        "spouse_education_us",
-        "spouse_characteristics_us",
-        "visualize_spouse_scenario",
-    ]
+
+    @staticmethod
+    def get_form_fields(player):
+        if player.orderB == 0:
+            return [
+                "probability_marriage_mex",
+                "spouse_age_mex",
+                "spouse_birthplace_mex",
+                "spouse_education_mex",
+                "spouse_characteristics_mex",
+            ]
+        else:
+            return [
+                "probability_marriage_us",
+                "spouse_age_us",
+                "spouse_birthplace_us",
+                "spouse_education_us",
+                "spouse_characteristics_us",
+            ]
+
+    @staticmethod
+    def is_displayed(player):
+        return player.order_blocks == "BC"
+
+
+class BlockB2A(Page):
+    form_model = "player"
+
+    @staticmethod
+    def get_form_fields(player):
+        if player.orderB == 0:
+            return [
+                "probability_marriage_us",
+                "spouse_age_us",
+                "spouse_birthplace_us",
+                "spouse_education_us",
+                "spouse_characteristics_us",
+            ]
+        else:
+            return [
+                "probability_marriage_mex",
+                "spouse_age_mex",
+                "spouse_birthplace_mex",
+                "spouse_education_mex",
+                "spouse_characteristics_mex",
+            ]
+
+    @staticmethod
+    def is_displayed(player):
+        return player.order_blocks == "BC"
+
+
+class BlockB3A(Page):
+    form_model = "player"
+    form_fields = ["visualize_spouse_scenario"]
 
     @staticmethod
     def is_displayed(player):
@@ -470,26 +512,68 @@ class BlockC1(Page):
     ]
 
 
-class BlockB2(Page):
+
+class BlockB1B(Page):
     form_model = "player"
-    form_fields = [
-        "probability_marriage_mex",
-        "spouse_age_mex",
-        "spouse_birthplace_mex",
-        "spouse_education_mex",
-        "spouse_characteristics_mex",
-        "probability_marriage_us",
-        "spouse_age_us",
-        "spouse_birthplace_us",
-        "spouse_education_us",
-        "spouse_characteristics_us",
-        "visualize_spouse_scenario",
-    ]
+
+    @staticmethod
+    def get_form_fields(player):
+        if player.orderB == 0:
+            return [
+                "probability_marriage_mex",
+                "spouse_age_mex",
+                "spouse_birthplace_mex",
+                "spouse_education_mex",
+                "spouse_characteristics_mex",
+            ]
+        else:
+            return [
+                "probability_marriage_us",
+                "spouse_age_us",
+                "spouse_birthplace_us",
+                "spouse_education_us",
+                "spouse_characteristics_us",
+            ]
 
     @staticmethod
     def is_displayed(player):
         return player.order_blocks == "CB"
 
+
+class BlockB2B(Page):
+    form_model = "player"
+
+    @staticmethod
+    def get_form_fields(player):
+        if player.orderB == 0:
+            return [
+                "probability_marriage_us",
+                "spouse_age_us",
+                "spouse_birthplace_us",
+                "spouse_education_us",
+                "spouse_characteristics_us",
+            ]
+        else:
+            return [
+                "probability_marriage_mex",
+                "spouse_age_mex",
+                "spouse_birthplace_mex",
+                "spouse_education_mex",
+                "spouse_characteristics_mex",
+            ]
+
+    @staticmethod
+    def is_displayed(player):
+        return player.order_blocks == "CB"
+
+
+class BlockB3B(Page):
+    form_model = "player"
+    form_fields = ["visualize_spouse_scenario"]
+
+    @staticmethod
+    def is_displayed(player):
+        return player.order_blocks == "CB"
 
 class Completion(Page):
 
@@ -508,9 +592,13 @@ page_sequence = [
     BlockA1,
     Screening,
     BlockA2,
-    BlockB1,
+    BlockB1A,
+    BlockB2A,
+    BlockB3A,
     BlockC,
     BlockC1,
-    BlockB2,
+    BlockB1B,
+    BlockB2B,
+    BlockB3B,
     Completion,
 ]

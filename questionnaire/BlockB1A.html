@@ -1,0 +1,48 @@
+{{ block title }}
+{{ endblock }}
+{{ block content }}
+
+{{ if player.orderB == 0 }}
+
+<div class="card text-bg-light mb-3">
+    <div class="card-body">
+
+	<p class="card-text">
+	<p>Al contestar las siguientes cinco preguntas, considera el caso de que vivirás en <b>México</b>.</p>
+
+	{{ formfield "probability_marriage_mex" }}
+	{{ formfield "spouse_age_mex"}}
+	{{ formfield "spouse_birthplace_mex"}}
+	{{ formfield "spouse_education_mex"}}
+	{{ formfield "spouse_characteristics_mex"}}
+
+	</p>
+
+    </div>
+</div>
+
+{{ else }}
+
+<div class="card text-bg-light mb-3">
+    <div class="card-body">
+
+	<p class="card-text">
+	<p>Cuando respondas a las cinco preguntas siguientes, considera el caso de que vayas a vivir en <b>Estados Unidos</b> y de que vayas a emigrar allí en los próximos años, antes de casarte.</p>
+
+	    {{ formfield "probability_marriage_us"}}
+	    {{ formfield "spouse_age_us"}}
+	    {{ formfield "spouse_birthplace_us"}}
+	    {{ formfield "spouse_education_us"}}
+	    {{ formfield "spouse_characteristics_us"}}
+
+	</p>
+
+    </div>
+</div>
+
+
+{{ endif }}
+
+{{ next_button }}
+
+{{ endblock }}
