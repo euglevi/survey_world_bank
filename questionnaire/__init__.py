@@ -164,7 +164,9 @@ class Player(BasePlayer):
                 "Operador de maquinaria industrial, ensamblador, chofer o conductor de transporte",
             ],
             [9, "Trabajador en actividades elementales y de apoyo"],
+            [10, "Ninguna"]
         ],
+        blank=True,
     )
 
     emigrated_since_2020 = models.IntegerField(
