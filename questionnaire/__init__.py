@@ -410,7 +410,7 @@ class Screening(Page):
     @staticmethod
     def vars_for_template(player):
         completion_link = (
-            "https://notch.insights.supply/cb?token=67e2b6c4-0bd4-27af-3e51-8e741b1db7ae&RID="
+            "https://samplicio.us/s/ClientCallBack.aspx?RIS=20&RID="
             + player.participant.label
         )
         return dict(completion_link=completion_link)
@@ -582,7 +582,7 @@ class Completion(Page):
     @staticmethod
     def vars_for_template(player):
         completion_link = (
-            "https://notch.insights.supply/cb?token=67e2b611-f486-10c1-62a1-b91150cb2a1d&RID="
+            "https://notch.insights.supply/cb?token=79844413-27e9-4fb3-ae67-6379f015a848&RID="
             + player.participant.label
         )
         return dict(completion_link=completion_link)
