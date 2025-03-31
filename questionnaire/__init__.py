@@ -176,7 +176,7 @@ class Player(BasePlayer):
     )
 
     attention_check = models.IntegerField(
-        label="En cuestionarios como el nuestro, a veces hay participantes que no leen atentamente las preguntas. Esto significa que muchas respuestas podrían comprometer los resultados de los estudios de investigación. Para demostrar que has leído estas instrucciones atentamente, respuesta “Naranja” a la siguiente pregunta.\nLas rayas de la bandera estadounidense son rojas y ¿de qué otro color?",
+        label="En cuestionarios como el nuestro, a veces hay participantes que no leen atentamente las preguntas. Esto significa que muchas respuestas podrían comprometer los resultados de los estudios de investigación. Para demostrar que has leído estas instrucciones atentamente, respuesta “Naranja” a la siguiente pregunta.<br><br>Las rayas de la bandera estadounidense son rojas y ¿de qué otro color?",
         choices=[
             [1, "Verde"],
             [2, "Amarillo"],
