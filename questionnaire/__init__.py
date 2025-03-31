@@ -418,7 +418,6 @@ class BlockA2(Page):
         "birth_place",
         "living_area",
         "education_level",
-        "education_grade",
         "currently_studying",
         "employment_status",
         "occupation_last_week",
