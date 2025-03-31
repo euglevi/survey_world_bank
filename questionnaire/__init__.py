@@ -121,10 +121,6 @@ class Player(BasePlayer):
         ],
     )
 
-    education_grade = models.IntegerField(
-        label="¿Cuál fue el último año o grado que aprobaste en la escuela?"
-    )
-
     currently_studying = models.IntegerField(
         label="¿Estás estudiando actualmente?", choices=[[1, "Sí"], [2, "No"]]
     )
@@ -180,7 +176,7 @@ class Player(BasePlayer):
     )
 
     attention_check = models.IntegerField(
-        label="En cuestionarios como el nuestro, a veces hay participantes que no leen atentamente las preguntas. Esto significa que muchas respuestas podrían comprometer los resultados de los estudios de investigación. Para demostrar que has leído atentamente, respuesta a la siguiente pregunta.\nLas rayas de la bandera estadounidense son rojas y ¿de qué otro color?",
+        label="En cuestionarios como el nuestro, a veces hay participantes que no leen atentamente las preguntas. Esto significa que muchas respuestas podrían comprometer los resultados de los estudios de investigación. Para demostrar que has leído estas instrucciones atentamente, respuesta “Naranja” a la siguiente pregunta.\nLas rayas de la bandera estadounidense son rojas y ¿de qué otro color?",
         choices=[
             [1, "Verde"],
             [2, "Amarillo"],
@@ -299,14 +295,14 @@ class Player(BasePlayer):
     )
 
     visualize_spouse_scenario = models.IntegerField(
-        label="Considera ahora los dos escenarios (México y Estados Unidos); trata de visualizar las características de tu futuro cónyuge/pareja en cada escenario. En caso de emigrar a Estados Unidos, ¿eres",
+        label="Considera ahora los dos escenarios (quedarte en México y migrar a Estados Unidos). Trata de visualizar las características de tu futuro cónyuge/pareja en cada escenario. ¿Cuál de estas opciones lo describe?",
         choices=[
             [
                 1,
-                "Más capaz de visualizar estas características que en el caso de quedarte en México",
+                "Me resulta más fácil pensar en las características de un futuro cónyuge con quien me casaría en México que en Estados Unidos.",
             ],
-            [2, "Tan capaz como en el caso de quedarte en México"],
-            [3, "Menos capaz que en el caso de quedarte en México"],
+            [2, "Me resulta más fácil pensar en las características de un futuro cónyuge con quien me casaría en Estados Unidos que en México."],
+            [3, "Me resulta igualmente fácil visualizar ambos escenarios."],
         ],
     )
 
